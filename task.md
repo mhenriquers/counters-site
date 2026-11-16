@@ -75,11 +75,11 @@ Feita por script (`sharp` + `qrcode`, instalados numa pasta temporária, **fora*
 
 ## Etapa 2 — Esqueleto
 
-- [ ] `index.html` com `lang="pt-BR"`, viewport, `<title>`, meta description, `theme-color`, favicon e apple-touch-icon (de `img/icones/`) e um comentário marcando onde entra o Open Graph (etapa 11).
-- [ ] As 7 seções vazias: `header.secao-topo`, `main` com `.secao-problema`, `.secao-como-funciona`, `.secao-vantagens`, `.secao-perguntas` e `.secao-chamada-final`, e `footer.rodape`.
-- [ ] `style.css` com as variáveis de cor no `:root` (tabela do CLAUDE.md), `box-sizing`, fundo e fonte do sistema.
-- [ ] Teste: a página abre azul-escura e vazia, com o ícone do app na aba.
-- [ ] Commit: `add page skeleton`.
+- [x] `index.html` com `lang="pt-BR"`, viewport, `<title>`, meta description, `theme-color`, favicon e apple-touch-icon (de `img/icones/`) e um comentário marcando onde entra o Open Graph (etapa 11).
+- [x] As 7 seções vazias: `header.secao-topo`, `main` com `.secao-problema`, `.secao-como-funciona`, `.secao-vantagens`, `.secao-perguntas` e `.secao-chamada-final`, e `footer.rodape`.
+- [x] `style.css` com as variáveis de cor no `:root` (tabela do CLAUDE.md), `box-sizing`, fundo e fonte do sistema.
+- [x] Teste: a página abre azul-escura e vazia, com o ícone do app na aba.
+- [x] Commit: `add page skeleton`.
 
 ## Etapa 3 — Topo
 

@@ -1,0 +1,83 @@
+/* =====================================================================
+   Counters MLBB - landing page
+   Escrito primeiro para o celular; os ajustes de telas grandes ficam
+   em @media (min-width: 768px), no fim de cada bloco.
+   ===================================================================== */
+
+/* ===== Cores (iguais às do app: c:\dev\Counters\src\tema.js) ===== */
+:root {
+  --fundo: #0d1424;
+  --cartao: rgba(10, 17, 32, 0.72);
+  --borda-cartao: rgba(155, 209, 253, 0.16);
+  --texto: #ffffff;
+  --texto-corpo: rgba(255, 255, 255, 0.9);
+  --texto-fraco: rgba(255, 255, 255, 0.45);
+  --texto-secundario: #9bd1fd;
+  --dourado: #D3AF37;
+  --dourado-borda: rgba(211, 175, 55, 0.55);
+  --botao: #ffd700;
+  --forte: #4fd8eb;
+  --fraco: #ff6b7a;
+  --borda-foto: hsl(191, 100%, 94%);
+  --sombra: rgba(0, 0, 0, 0.45);
+}
+
+/* ===== Base ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--texto-secundario);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+/* Largura máxima do conteúdo e margem lateral de 16px no celular */
+.conteudo {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Espaço entre as seções */
+main > section {
+  padding: 48px 0;
+}
+
+@media (min-width: 768px) {
+  .conteudo {
+    padding: 0 32px;
+  }
+
+  main > section {
+    padding: 72px 0;
+  }
+}
