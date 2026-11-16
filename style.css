@@ -669,3 +669,26 @@ main > .secao-chamada-final {
     width: auto;
   }
 }
+
+/* =====================================================================
+   7. Rodapé
+   ===================================================================== */
+.rodape {
+  padding: 40px 0 48px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--texto-secundario);
+}
+
+.rodape-logo {
+  width: 140px;
+  margin: 0 auto 16px;
+  opacity: 0.8;
+}
+
+.rodape-aviso {
+  max-width: 520px;
+  margin: 12px auto 0;
+  color: var(--texto-fraco);
+  font-size: 0.8rem;
+}

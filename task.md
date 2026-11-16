@@ -7,9 +7,9 @@ Cores, links, fontes e convenções estão no `CLAUDE.md`, que é a fonte única
 
 - [x] **QR code:** gerado um novo, apontando para a PWA (etapa 1).
 - [x] **Anúncios:** não há nenhum no código do app. O cartão "Grátis" fica como está.
-- [ ] **Antes da etapa 7:** para qual patch os counters estão atualizados, e com que frequência você atualiza? (Só citar patch se ele for mantido em dia.)
-- [ ] **Antes da etapa 7:** a PWA funciona bem no Safari do iPhone (ícone na tela inicial e uso offline)?
-- [ ] **Antes da etapa 7:** o APK pede alguma permissão especial?
+- [ ] **Patch:** para qual patch os counters estão atualizados, e com que frequência você atualiza? Por enquanto, o FAQ traz "E se um counter estiver errado?" (resposta: mandar pelo Feedback) no lugar de "Os counters estão atualizados?". Só citar patch se ele for mantido em dia.
+- [ ] **iPhone:** a PWA funciona bem no Safari do iPhone? O FAQ só ensina a adicionar à tela de início e não promete uso offline no iPhone.
+- [ ] **Permissões do APK:** o FAQ não fala de permissões, só que o código é aberto. Se o APK não pedir nenhuma, dá para acrescentar isso.
 
 ## Rotina de toda etapa de seção
 
@@ -92,13 +92,13 @@ Feita por script (`sharp` + `qrcode`, instalados numa pasta temporária, **fora*
 - QR `img/qrcode.png` com a legenda *No computador? Aponte a câmera do celular.* Aparece **só no desktop**.
 - Fundo da faixa: `faixa-fundo.webp` + `capacete.webp`, como no app.
 - Celular: tudo em uma coluna. Desktop: texto à esquerda, print à direita.
-- [ ] Feito. Commit: `add hero section`.
+- [x] Feito. Commit: `add hero section`.
 
 ## Etapa 4 — O problema
 
 - **h2:** Você já perdeu a partida no draft?
 - **Texto:** Você escolhe seu herói, a partida começa e só então descobre que o time inimigo tem o counter perfeito contra ele. Saber quem ganha de quem decide boa parte do jogo antes mesmo de ele começar. Só que ninguém decora os confrontos de 133 heróis.
-- [ ] Feito. Commit: `add problem section`.
+- [x] Feito. Commit: `add problem section`.
 
 ## Etapa 5 — Como funciona
 
@@ -109,7 +109,7 @@ Feita por script (`sharp` + `qrcode`, instalados numa pasta temporária, **fora*
   - **Fraco contra** (cor "fraco"): Esmeralda, Alice, Hanabi, Cyclops, Karrie
   - Dados conferidos em `src/dados/banco_herois.js` do app (id 2). Se o app mudar, conferir de novo.
 - Opcional: `print-heroi.webp` ao lado do cartão no desktop.
-- [ ] Feito. Commit: `add how it works section`.
+- [x] Feito. Commit: `add how it works section`.
 
 ## Etapa 6 — Vantagens
 
@@ -123,7 +123,7 @@ Feita por script (`sharp` + `qrcode`, instalados numa pasta temporária, **fora*
 | Sem cadastro | Abriu, usou. Nada de conta, e-mail ou senha. |
 | Português e inglês | Troque o idioma quando quiser, nas configurações. |
 
-- [ ] Feito. Commit: `add features section`.
+- [x] Feito. Commit: `add features section`.
 
 ## Etapa 7 — Perguntas frequentes
 
@@ -134,23 +134,23 @@ Cada pergunta é um `<details>` + `<summary>`, que abre e fecha sem JavaScript.
 3. **Como instalo o APK?** Toque em "Baixar APK" → abra o arquivo → se o Android pedir, permita "instalar apps desta fonte" → Instalar.
 4. **Tenho iPhone. Funciona?** Sim, pela versão web: abra no Safari → Compartilhar → Adicionar à Tela de Início. *(Ajustar conforme a pendência.)*
 5. **Precisa de internet?** Só para baixar ou abrir pela primeira vez.
-6. **Os counters estão atualizados?** *(Escrever depois da pendência.)*
+6. **E se um counter estiver errado?** Mande pela tela de Feedback, no menu do app. *(Provisória: trocar por "Os counters estão atualizados?" depois da pendência do patch.)*
 7. **É um app oficial do Mobile Legends?** Não. É um projeto de fã, sem vínculo com a Moonton.
 
-- [ ] Feito; testar que cada pergunta abre e fecha. Commit: `add faq section`.
+- [x] Feito; testar que cada pergunta abre e fecha. Commit: `add faq section`.
 
 ## Etapa 8 — Chamada final
 
 - **h2:** Pronto para o próximo draft?
 - Os mesmos dois botões e a mesma linha do iPhone do topo.
 - Faixa com o fundo e o capacete, com borda dourada em cima e embaixo.
-- [ ] Feito. Commit: `add final call section`.
+- [x] Feito. Commit: `add final call section`.
 
 ## Etapa 9 — Rodapé
 
 - *Counters é um projeto de fã, sem vínculo com a Moonton. Mobile Legends: Bang Bang é marca registrada da Moonton.* (obrigatório)
 - Link **Código no GitHub** → repositório do app.
-- [ ] Feito. Commit: `add footer`.
+- [x] Feito. Commit: `add footer`.
 
 ## Etapa 10 — Deploy na Vercel
 
