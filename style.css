@@ -546,3 +546,77 @@ main > section {
     grid-column: span 3;
   }
 }
+
+/* =====================================================================
+   5. Perguntas frequentes
+   ===================================================================== */
+.lista-perguntas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 760px;
+}
+
+.lista-perguntas details {
+  padding: 0;
+}
+
+.lista-perguntas details[open] {
+  border-color: var(--dourado-borda);
+}
+
+/* A pergunta: linha clicável com um "+" que vira "−" quando aberta */
+.lista-perguntas summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.lista-perguntas summary::-webkit-details-marker {
+  display: none;
+}
+
+.lista-perguntas summary::after {
+  content: "+";
+  flex-shrink: 0;
+  color: var(--dourado);
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.lista-perguntas details[open] summary::after {
+  content: "−";
+}
+
+/* A resposta */
+.lista-perguntas details p,
+.lista-perguntas details ol {
+  margin: 0;
+  padding: 0 16px 16px;
+  color: var(--texto-corpo);
+}
+
+.lista-perguntas details ol {
+  padding-left: 36px;
+}
+
+@media (min-width: 768px) {
+  .lista-perguntas summary {
+    padding: 18px 24px;
+    font-size: 1.05rem;
+  }
+
+  .lista-perguntas details p,
+  .lista-perguntas details ol {
+    padding: 0 24px 20px;
+  }
+
+  .lista-perguntas details ol {
+    padding-left: 44px;
+  }
+}
