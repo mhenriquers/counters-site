@@ -147,6 +147,7 @@ main>section {
   background:
     linear-gradient(to bottom, transparent 60%, var(--fundo)),
     url("img/fragmentos.svg") center top / 100% auto no-repeat,
+    url("img/fragmentos-longe.svg") center top / 900px auto repeat,
     url("img/fundo.svg") center top / cover no-repeat;
   padding: 32px 0 24px;
   border-bottom: 1px solid var(--borda-cartao);
@@ -260,7 +261,7 @@ main>section {
   min-height: 56px;
   padding: 8px 12px 8px 14px;
   margin-bottom: 24px;
-  background: url("img/faixa-fundo.webp") left center / 100% 100% no-repeat;
+  background: url("img/faixa-fundo.svg") left center / 100% 100% no-repeat;
 }
 
 .faixa-titulo img {
@@ -629,7 +630,7 @@ main>section {
    6. Chamada final
    ===================================================================== */
 main>.secao-chamada-final {
-  background: url("img/faixa-fundo.webp") center / 100% 100% no-repeat;
+  background: url("img/faixa-fundo.svg") center / 100% 100% no-repeat;
   border-top: 1px solid var(--dourado-borda);
   border-bottom: 1px solid var(--dourado-borda);
 }

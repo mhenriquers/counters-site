@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1531 300" preserveAspectRatio="none">
+  <!-- Faixa de título do app, refeita em SVG a partir do faixa-fundo.webp.
+       É uma cor só que vai ficando transparente para a direita.
+       preserveAspectRatio="none" deixa esticar para o tamanho da faixa. -->
+  <defs>
+    <!-- Opacidade medida na imagem original, com o final suavizado
+         para sumir sem deixar marca -->
+    <linearGradient id="desbotar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0"     stop-color="#5496c4" stop-opacity="0.36"/>
+      <stop offset="0.1"   stop-color="#5496c4" stop-opacity="0.325"/>
+      <stop offset="0.2"   stop-color="#5496c4" stop-opacity="0.293"/>
+      <stop offset="0.3"   stop-color="#5496c4" stop-opacity="0.26"/>
+      <stop offset="0.4"   stop-color="#5496c4" stop-opacity="0.226"/>
+      <stop offset="0.5"   stop-color="#5496c4" stop-opacity="0.192"/>
+      <stop offset="0.6"   stop-color="#5496c4" stop-opacity="0.153"/>
+      <stop offset="0.7"   stop-color="#5496c4" stop-opacity="0.113"/>
+      <stop offset="0.8"   stop-color="#5496c4" stop-opacity="0.075"/>
+      <stop offset="0.87"  stop-color="#5496c4" stop-opacity="0.048"/>
+      <stop offset="0.93"  stop-color="#5496c4" stop-opacity="0.022"/>
+      <stop offset="0.97"  stop-color="#5496c4" stop-opacity="0.007"/>
+      <stop offset="1"     stop-color="#5496c4" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="8" width="1523" height="300" fill="url(#desbotar)"/>
+  <!-- Barra azul da borda esquerda -->
+  <rect width="8" height="300" fill="#5f7ac3"/>
+</svg>
