@@ -81,3 +81,167 @@ main > section {
     padding: 72px 0;
   }
 }
+
+/* =====================================================================
+   Botões (usados no topo e na chamada final)
+   ===================================================================== */
+.botoes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.botao-principal,
+.botao-secundario {
+  display: block;
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.15s, filter 0.15s;
+}
+
+.botao-principal {
+  background: var(--botao);
+  color: var(--fundo);
+  border: 2px solid var(--botao);
+}
+
+.botao-secundario {
+  background: transparent;
+  color: var(--botao);
+  border: 2px solid var(--botao);
+}
+
+.botao-principal:hover,
+.botao-secundario:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.aviso-iphone {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--texto-secundario);
+}
+
+@media (min-width: 768px) {
+  .botoes {
+    flex-direction: row;
+  }
+
+  .botao-principal,
+  .botao-secundario {
+    min-width: 200px;
+  }
+}
+
+/* =====================================================================
+   1. Topo
+   ===================================================================== */
+.secao-topo {
+  /* fundo da Home do app, desbotando para a cor de fundo embaixo */
+  background:
+    linear-gradient(to bottom, transparent 60%, var(--fundo)),
+    url("img/fundo-topo.webp") center top / cover no-repeat;
+  padding: 32px 0 24px;
+  border-bottom: 1px solid var(--borda-cartao);
+}
+
+.topo-grade {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.topo-logo {
+  width: 200px;
+  margin-bottom: 28px;
+}
+
+.secao-topo h1 {
+  color: var(--dourado);
+  font-size: 2rem;
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.topo-subtitulo {
+  margin: 14px 0 28px;
+  font-size: 1.1rem;
+  color: var(--texto-secundario);
+}
+
+/* QR code: escondido no celular */
+.topo-qr {
+  display: none;
+}
+
+/* Print do app numa moldura de celular feita em CSS */
+.topo-print {
+  display: flex;
+  justify-content: center;
+}
+
+.moldura-celular {
+  width: 100%;
+  max-width: 260px;
+  padding: 8px;
+  border: 1px solid var(--dourado-borda);
+  border-radius: 34px;
+  background: var(--fundo);
+  box-shadow: 0 24px 60px var(--sombra);
+}
+
+.moldura-celular img {
+  border-radius: 26px;
+}
+
+@media (min-width: 768px) {
+  .secao-topo {
+    padding: 56px 0 64px;
+  }
+
+  .topo-grade {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .topo-texto {
+    flex: 1;
+    max-width: 560px;
+  }
+
+  .topo-logo {
+    width: 240px;
+  }
+
+  .secao-topo h1 {
+    font-size: 3rem;
+  }
+
+  .topo-subtitulo {
+    font-size: 1.25rem;
+  }
+
+  .topo-qr {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
+    font-size: 0.9rem;
+    color: var(--texto-secundario);
+  }
+
+  .topo-qr img {
+    width: 112px;
+    border-radius: 8px;
+  }
+
+  .moldura-celular {
+    max-width: 300px;
+  }
+}
