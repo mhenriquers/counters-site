@@ -42,7 +42,8 @@ O app em si fica em outro repositório: `c:\dev\Counters` (https://github.com/mh
 
   Guarde as cores como variáveis CSS (`--fundo`, `--dourado`...) no `:root`, nunca soltas pelo arquivo.
 - **Imagens:** copiadas do app (`c:\dev\Counters`), nunca referenciadas de lá:
-  - logo: `assets/counters.png`;
+  - logo: `assets/logo.png` (o da Home, com fundo transparente; o `counters.png` tem fundo preto);
+  - fundo do topo: `assets/bgbg.png`, o mesmo da Home;
   - faixas: `assets/bg-Layer.png` + `assets/hero.png`, o capacete;
   - ícones e favicon: `public/icons/`;
   - prints das telas: `screenshots/`, com 384x832. São gerados com `npm run shots` no repositório do app.

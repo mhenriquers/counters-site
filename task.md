@@ -5,8 +5,8 @@ Cores, links, fontes e convenções estão no `CLAUDE.md`, que é a fonte única
 
 ## Pendências
 
-- [ ] **Antes da etapa 3:** apontar a câmera do celular para `C:\dev\Counters\assets\QRCode.png`. Se não abrir a PWA, gerar um QR novo (etapa 1).
-- [ ] **Antes da etapa 6:** o app tem anúncios? Se tiver, o cartão "Grátis" muda.
+- [x] **QR code:** gerado um novo, apontando para a PWA (etapa 1).
+- [x] **Anúncios:** não há nenhum no código do app. O cartão "Grátis" fica como está.
 - [ ] **Antes da etapa 7:** para qual patch os counters estão atualizados, e com que frequência você atualiza? (Só citar patch se ele for mantido em dia.)
 - [ ] **Antes da etapa 7:** a PWA funciona bem no Safari do iPhone (ícone na tela inicial e uso offline)?
 - [ ] **Antes da etapa 7:** o APK pede alguma permissão especial?
@@ -31,7 +31,7 @@ Cores, links, fontes e convenções estão no `CLAUDE.md`, que é a fonte única
 
 ## Etapa 0 — Preparar
 
-- [ ] Criar as pastas e copiar os arquivos (no cmd):
+- [x] Criar as pastas e copiar os arquivos (no cmd):
   ```
   cd /d C:\dev\counters-site
   mkdir img\icones
@@ -48,26 +48,30 @@ Cores, links, fontes e convenções estão no `CLAUDE.md`, que é a fonte única
   copy "C:\dev\Counters\public\icons\apple-touch-icon.png" "img\icones\"
   ```
   > Os originais ficam **fora** do repositório porque são pesados. Os ícones já são pequenos e vão direto.
-- [ ] Conferir: `dir img\icones` deve listar 3 arquivos e `dir C:\dev\counters-site-originais` deve listar 7.
-- [ ] Commit: `add project plan and icons`.
+- [x] Conferir: `dir img\icones` deve listar 3 arquivos e `dir C:\dev\counters-site-originais` deve listar 7.
+- [x] Commit: `add project plan and icons`.
 
 ## Etapa 1 — Comprimir as imagens
 
-No `https://squoosh.app` (roda no navegador e não envia a imagem para nenhum servidor): arraste a imagem, escolha o formato no painel da direita, baixe o arquivo e salve em `img/` com o nome final da tabela.
+Feita por script (`sharp` + `qrcode`, instalados numa pasta temporária, **fora** do projeto). Quem preferir fazer à mão pode usar o `https://squoosh.app`, que roda no navegador.
 
-| Original | Formato | Resize (largura) | Nome final |
+| Original (no app) | Formato | Largura | Nome final em `img/` |
 |---|---|---|---|
-| `counters.png` | WebP 80 | 320 | `logo.webp` |
-| `bg-Layer.png` | WebP 80 | — | `faixa-fundo.webp` |
-| `hero.png` | WebP 80 | — | `capacete.webp` |
-| `home.png` | WebP 80 | — | `print-inicio.webp` |
-| `heroi-1.png` | WebP 80 | — | `print-heroi.webp` |
-| `heroi_ml_149.png` (Akai) | WebP 80 | 160, se for maior | `akai.webp` |
-| `QRCode.png` | **OxiPNG** (WebP borra o QR) | — | `qrcode.png` |
+| `assets/logo.png` (logo da Home, fundo transparente) | WebP 90 | — | `logo.webp` |
+| `assets/bgbg.png` (fundo da Home) | WebP 70 | 900 | `fundo-topo.webp` |
+| `assets/bg-Layer.png` | WebP 80 | — | `faixa-fundo.webp` |
+| `assets/hero.png` | WebP 90 | — | `capacete.webp` |
+| `screenshots/home.png` | WebP 80 | — | `print-inicio.webp` |
+| `screenshots/heroi-1.png` | WebP 80 | — | `print-heroi.webp` |
+| `assets/heroi_ml_149.png` (Akai) | WebP 80 | 192 | `herois/akai.webp` |
+| fotos dos 10 heróis do cartão do Akai | WebP 80 | 96 | `herois/<nome>.webp` |
+| — (gerado para a PWA) | SVG | — | `qrcode.svg` |
 
-- [ ] Cada arquivo com **menos de 100 KB**. Se algum passar, baixar a qualidade para 70.
-- [ ] Se for preciso gerar um QR novo: apontar para a PWA, baixar em PNG, **sem** encurtador e **sem** "QR dinâmico". Testar com a câmera.
-- [ ] Commit: `add compressed images`.
+> `counters.png` **não** foi usado: é o ícone do Android, com fundo preto.
+> `QRCode.png` **não** foi usado: não aparece no código do app e pode ser o QR do Pix. O QR novo é SVG, então fica nítido em qualquer tamanho.
+
+- [x] Cada arquivo com **menos de 100 KB** (o maior tem 43 KB).
+- [x] Commit: `add compressed images`.
 
 ## Etapa 2 — Esqueleto
 
