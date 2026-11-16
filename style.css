@@ -142,10 +142,12 @@ main>section {
    1. Topo
    ===================================================================== */
 .secao-topo {
-  /* fundo da Home do app, desbotando para a cor de fundo embaixo */
+  /* fundo da Home do app, refeito em SVG: fragmentos de vidro por cima
+     do degradê, desbotando para a cor de fundo embaixo */
   background:
     linear-gradient(to bottom, transparent 60%, var(--fundo)),
-    url("img/fundo-topo1.webp") center top / cover no-repeat;
+    url("img/fragmentos.svg") center top / 100% auto no-repeat,
+    url("img/fundo.svg") center top / cover no-repeat;
   padding: 32px 0 24px;
   border-bottom: 1px solid var(--borda-cartao);
 }

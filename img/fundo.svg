@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1600" preserveAspectRatio="xMidYMin slice">
+  <defs>
+    <!-- Degradê vertical: cores medidas do fundo-topo.webp, faixa por faixa -->
+    <linearGradient id="degrade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"     stop-color="#317b90"/>
+      <stop offset="0.05"  stop-color="#33748b"/>
+      <stop offset="0.1"   stop-color="#2e627a"/>
+      <stop offset="0.15"  stop-color="#2a4f67"/>
+      <stop offset="0.2"   stop-color="#243f56"/>
+      <stop offset="0.25"  stop-color="#21354b"/>
+      <stop offset="0.3"   stop-color="#1f2c41"/>
+      <stop offset="0.35"  stop-color="#1d253b"/>
+      <stop offset="0.425" stop-color="#1a2033"/>
+      <stop offset="0.5"   stop-color="#191f32"/>
+      <stop offset="0.6"   stop-color="#171d2f"/>
+      <stop offset="0.7"   stop-color="#161c2e"/>
+      <stop offset="0.775" stop-color="#141b2d"/>
+      <stop offset="0.9"   stop-color="#13192c"/>
+      <stop offset="1"     stop-color="#13192c"/>
+    </linearGradient>
+
+    <!-- Brilho suave no centro do topo, que deixa o meio um pouco mais claro -->
+    <radialGradient id="brilho" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                    gradientTransform="translate(450 0) scale(480 320)">
+      <stop offset="0"   stop-color="#5fb4cc" stop-opacity="0.22"/>
+      <stop offset="0.6" stop-color="#5fb4cc" stop-opacity="0.07"/>
+      <stop offset="1"   stop-color="#5fb4cc" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="900" height="1600" fill="url(#degrade)"/>
+  <rect width="900" height="1600" fill="url(#brilho)"/>
+</svg>

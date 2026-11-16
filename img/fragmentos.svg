@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320" preserveAspectRatio="xMidYMin slice">
+  <defs>
+    <!-- Vidro: mais claro em cima, quase some embaixo -->
+    <linearGradient id="vidro" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a8ecf5" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#a8ecf5" stop-opacity="0.06"/>
+    </linearGradient>
+    <linearGradient id="vidro-lateral" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c6f4fa" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#7fd0e0" stop-opacity="0.04"/>
+    </linearGradient>
+
+    <!-- Reflexo de arco-íris: aparece no meio da borda e some nas pontas -->
+    <linearGradient id="reflexo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff5a6e" stop-opacity="0"/>
+      <stop offset="0.3" stop-color="#ff7a6e"/>
+      <stop offset="0.5" stop-color="#ffd84d"/>
+      <stop offset="0.7" stop-color="#6dffb0"/>
+      <stop offset="1" stop-color="#4fd8eb" stop-opacity="0"/>
+    </linearGradient>
+    <!-- Mesmo reflexo com as cores na ordem inversa, pra não ficar tudo igual -->
+    <linearGradient id="reflexo-inverso" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4fd8eb" stop-opacity="0"/>
+      <stop offset="0.35" stop-color="#6dffb0"/>
+      <stop offset="0.55" stop-color="#ffd84d"/>
+      <stop offset="0.75" stop-color="#ff7a6e"/>
+      <stop offset="1" stop-color="#b48cff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Brilho prismático dos estilhaços pequenos -->
+    <linearGradient id="prisma" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff5a6e"/>
+      <stop offset="0.35" stop-color="#ffd84d"/>
+      <stop offset="0.65" stop-color="#6dffb0"/>
+      <stop offset="1" stop-color="#4fd8eb"/>
+    </linearGradient>
+
+    <!-- Desfoque leve, pra o reflexo parecer luz e não traço -->
+    <filter id="desfoque" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="0.7"/>
+    </filter>
+
+    <!-- Esmaece tudo de cima pra baixo -->
+    <linearGradient id="esmaecer" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="0.75" stop-color="#fff" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="mascara">
+      <rect width="900" height="320" fill="url(#esmaecer)"/>
+    </mask>
+  </defs>
+
+  <g mask="url(#mascara)">
+    <!-- Fragmentos de vidro -->
+    <g stroke="#d4f7ff" stroke-opacity="0.18" stroke-width="1" stroke-linejoin="round">
+      <!-- Grandes -->
+      <polygon points="380,0 520,0 450,58" fill="url(#vidro)"/>
+      <polygon points="440,0 470,0 478,42" fill="url(#vidro-lateral)"/>
+      <polygon points="235,40 300,4 322,82" fill="url(#vidro-lateral)"/>
+      <polygon points="540,105 588,8 622,98" fill="url(#vidro)"/>
+      <polygon points="610,0 735,0 700,62" fill="url(#vidro)" opacity="0.6"/>
+      <polygon points="300,0 370,0 335,30" fill="url(#vidro)" opacity="0.5"/>
+
+      <!-- Esquerda -->
+      <polygon points="98,42 134,92 100,152" fill="url(#vidro-lateral)"/>
+      <polygon points="0,142 76,76 70,172" fill="url(#vidro)"/>
+      <polygon points="10,190 60,175 30,245" fill="url(#vidro)" opacity="0.5"/>
+
+      <!-- Direita -->
+      <polygon points="768,92 806,40 810,158" fill="url(#vidro-lateral)"/>
+      <polygon points="824,74 900,132 842,162" fill="url(#vidro)"/>
+      <polygon points="815,185 885,180 892,250" fill="url(#vidro)" opacity="0.45"/>
+
+      <!-- Pequenos -->
+      <polygon points="558,212 592,178 612,190" fill="url(#vidro)" opacity="0.7"/>
+      <polygon points="200,90 225,80 215,110" fill="url(#vidro)" opacity="0.5"/>
+      <polygon points="720,140 745,128 738,160" fill="url(#vidro)" opacity="0.5"/>
+    </g>
+
+    <!-- Reflexos de arco-íris: só em uma borda de alguns fragmentos,
+         cada um com força e espessura diferentes -->
+    <g fill="none" stroke-linecap="round" filter="url(#desfoque)">
+      <line x1="520" y1="0"  x2="450" y2="58"  stroke="url(#reflexo)"         stroke-width="1.6" opacity="0.55"/>
+      <line x1="300" y1="4"  x2="322" y2="82"  stroke="url(#reflexo-inverso)" stroke-width="1.2" opacity="0.4"/>
+      <line x1="588" y1="8"  x2="622" y2="98"  stroke="url(#reflexo)"         stroke-width="1.8" opacity="0.6"/>
+      <line x1="98"  y1="42" x2="134" y2="92"  stroke="url(#reflexo-inverso)" stroke-width="1.4" opacity="0.5"/>
+      <line x1="806" y1="40" x2="768" y2="92"  stroke="url(#reflexo)"         stroke-width="1.2" opacity="0.35"/>
+      <line x1="842" y1="162" x2="900" y2="132" stroke="url(#reflexo-inverso)" stroke-width="1.5" opacity="0.45"/>
+      <line x1="10"  y1="190" x2="60" y2="175" stroke="url(#reflexo)"         stroke-width="1"   opacity="0.3"/>
+    </g>
+  </g>
+
+  <!-- Estilhaços com brilho prismático -->
+  <g fill="url(#prisma)">
+    <polygon points="240,52 260,46 250,74" opacity="0.6"/>
+    <polygon points="640,44 664,58 652,76" opacity="0.55"/>
+    <polygon points="688,88 698,84 695,104" opacity="0.4"/>
+    <polygon points="52,282 63,250 68,284" opacity="0.5"/>
+    <polygon points="832,250 844,286 856,282" opacity="0.5"/>
+    <polygon points="500,90 510,85 507,101" opacity="0.3"/>
+    <polygon points="150,200 158,192 157,210" opacity="0.25"/>
+  </g>
+</svg>
