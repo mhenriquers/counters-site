@@ -333,3 +333,172 @@ main > section {
     font-size: 1.15rem;
   }
 }
+
+/* =====================================================================
+   3. Como funciona
+   ===================================================================== */
+
+/* Passos numerados, com o número num círculo dourado */
+.passos {
+  list-style: none;
+  counter-reset: passo;
+  margin: 0 0 32px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.passos li {
+  counter-increment: passo;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 1.05rem;
+  color: var(--texto-corpo);
+}
+
+.passos li::before {
+  content: counter(passo);
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--dourado);
+  border-radius: 50%;
+  color: var(--dourado);
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.passos strong {
+  color: var(--texto);
+}
+
+/* Exemplo da ficha do herói */
+.ficha-exemplo {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ficha-cabecalho {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--borda-cartao);
+}
+
+.ficha-foto {
+  width: 96px;
+  border: 2px solid var(--borda-foto);
+  border-radius: 12px;
+}
+
+.ficha-cabecalho h3 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.ficha-classe {
+  padding: 4px 14px;
+  border: 1px solid var(--borda-cartao);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--texto-secundario);
+}
+
+.ficha-listas {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Cada lista recebe a sua cor pela variável --cor-lista */
+.lista-forte {
+  --cor-lista: var(--forte);
+}
+
+.lista-fraco {
+  --cor-lista: var(--fraco);
+}
+
+.ficha-lista h4 {
+  margin: 0;
+  padding-left: 10px;
+  border-left: 3px solid var(--cor-lista);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.ficha-lista > p {
+  margin: 2px 0 12px 13px;
+  font-size: 0.8rem;
+  color: var(--cor-lista);
+}
+
+.ficha-lista ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ficha-lista li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  background: var(--cartao);
+  border: 1px solid var(--borda-cartao);
+  border-left: 3px solid var(--cor-lista);
+  border-radius: 8px;
+}
+
+.ficha-lista li img {
+  width: 44px;
+  border: 1px solid var(--borda-foto);
+  border-radius: 6px;
+}
+
+.ficha-lista li strong {
+  display: block;
+  line-height: 1.2;
+}
+
+.ficha-lista li span {
+  font-size: 0.8rem;
+  color: var(--texto-secundario);
+}
+
+@media (min-width: 768px) {
+  /* Passos lado a lado */
+  .passos {
+    flex-direction: row;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .passos li {
+    flex: 1;
+  }
+
+  /* As duas listas lado a lado */
+  .ficha-listas {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .ficha-lista {
+    flex: 1;
+  }
+}
