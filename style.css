@@ -245,3 +245,91 @@ main > section {
     max-width: 300px;
   }
 }
+
+/* =====================================================================
+   Peças compartilhadas pelas seções
+   ===================================================================== */
+
+/* Faixa de título igual à do app: faixa azul + capacete + título */
+.faixa-titulo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 8px 12px 8px 14px;
+  margin-bottom: 24px;
+  background: url("img/faixa-fundo.webp") left center / 100% 100% no-repeat;
+}
+
+.faixa-titulo img {
+  width: 26px;
+  flex-shrink: 0;
+}
+
+.faixa-titulo h2 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.faixa-titulo p {
+  margin-top: 2px;
+  font-size: 0.8rem;
+  color: var(--texto-secundario);
+}
+
+/* Caixa de conteúdo, igual ao Cartao do app */
+.cartao {
+  background: var(--cartao);
+  border: 1px solid var(--borda-cartao);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .faixa-titulo {
+    min-height: 64px;
+    margin-bottom: 32px;
+  }
+
+  .faixa-titulo img {
+    width: 30px;
+  }
+
+  .faixa-titulo h2 {
+    font-size: 1.3rem;
+  }
+
+  .faixa-titulo p {
+    font-size: 0.9rem;
+  }
+
+  .cartao {
+    padding: 24px;
+  }
+}
+
+/* =====================================================================
+   2. O problema
+   ===================================================================== */
+.problema-texto {
+  font-size: 1.05rem;
+  color: var(--texto-corpo);
+}
+
+.problema-texto p + p {
+  margin-top: 12px;
+}
+
+.problema-texto strong {
+  color: var(--dourado);
+}
+
+@media (min-width: 768px) {
+  .problema-texto {
+    max-width: 720px;
+    font-size: 1.15rem;
+  }
+}
