@@ -62,18 +62,6 @@
     <polygon points="614.2,186.7 607.1,177.4 624.5,177.8" opacity="0.3"/>
     <polygon points="221.5,574.2 233.2,549.9 247.8,562.7" opacity="0.7"/>
     <polygon points="548.3,562.5 566.1,557.9 554.8,577.9" opacity="0.5"/>
-    <polygon points="516.9,780.2 543.8,788.9 532,808.4" opacity="0.7"/>
-    <polygon points="699.9,66.1 706.7,60.6 707.6,71.4" opacity="0.3"/>
-    <polygon points="796.5,456.7 832.2,467.9 803.8,492.4" opacity="0.7"/>
-    <polygon points="827.8,140.5 846.4,139.7 835.5,158.3" opacity="0.5"/>
-    <polygon points="125,596.8 108.3,612.7 101.8,598.5" opacity="0.5"/>
-    <polygon points="300.1,713.7 317.6,704.5 312.1,723.8" opacity="0.4"/>
-    <polygon points="411.6,528.2 423.3,541 405.1,542.4" opacity="0.4"/>
-    <polygon points="321.8,448.7 299.2,446.3 325.3,432.1" opacity="0.5"/>
-    <polygon points="797.2,206.5 811.7,213.2 797.1,220.1" opacity="0.4"/>
-    <polygon points="232.5,226 260.3,220 255.8,240.4" opacity="0.6"/>
-    <polygon points="665.2,759 659.8,779.5 647.4,770.8" opacity="0.5"/>
-    <polygon points="376.3,339 389.9,335.5 384.8,351.5" opacity="0.4"/>
   </g>
 
   <!-- Reflexos de luz por cima do vidro -->
@@ -88,18 +76,6 @@
     <polygon points="614.2,186.7 607.1,177.4 624.5,177.8" fill="url(#luz-2)" opacity="0.28"/>
     <polygon points="221.5,574.2 233.2,549.9 247.8,562.7" fill="url(#luz-3)" opacity="0.49"/>
     <polygon points="548.3,562.5 566.1,557.9 554.8,577.9" fill="url(#luz-2)" opacity="0.46"/>
-    <polygon points="516.9,780.2 543.8,788.9 532,808.4" fill="url(#luz-2)" opacity="0.7"/>
-    <polygon points="699.9,66.1 706.7,60.6 707.6,71.4" fill="url(#luz-1)" opacity="0.31"/>
-    <polygon points="796.5,456.7 832.2,467.9 803.8,492.4" fill="url(#luz-1)" opacity="0.61"/>
-    <polygon points="827.8,140.5 846.4,139.7 835.5,158.3" fill="url(#luz-3)" opacity="0.45"/>
-    <polygon points="125,596.8 108.3,612.7 101.8,598.5" fill="url(#luz-3)" opacity="0.48"/>
-    <polygon points="300.1,713.7 317.6,704.5 312.1,723.8" fill="url(#luz-4)" opacity="0.35"/>
-    <polygon points="411.6,528.2 423.3,541 405.1,542.4" fill="url(#luz-4)" opacity="0.35"/>
-    <polygon points="321.8,448.7 299.2,446.3 325.3,432.1" fill="url(#luz-4)" opacity="0.45"/>
-    <polygon points="797.2,206.5 811.7,213.2 797.1,220.1" fill="url(#luz-1)" opacity="0.4"/>
-    <polygon points="232.5,226 260.3,220 255.8,240.4" fill="url(#luz-1)" opacity="0.49"/>
-    <polygon points="665.2,759 659.8,779.5 647.4,770.8" fill="url(#luz-2)" opacity="0.39"/>
-    <polygon points="376.3,339 389.9,335.5 384.8,351.5" fill="url(#luz-2)" opacity="0.3"/>
   </g>
 
   <!-- Estilhaços com brilho prismático -->
@@ -110,11 +86,6 @@
     <polygon points="288.1,643.9 286.6,647.7 283.9,642" opacity="0.5"/>
     <polygon points="484.1,407.5 479.2,403.5 487.7,403" opacity="0.5"/>
     <polygon points="632.2,593.6 640.9,591.2 639.3,603" opacity="0.5"/>
-    <polygon points="731.7,822.7 733.1,828.7 727.6,827.8" opacity="0.3"/>
-    <polygon points="142.1,448.4 140.1,453.5 135.3,449.3" opacity="0.4"/>
-    <polygon points="339.1,139.1 337,147.2 330.4,143.3" opacity="0.4"/>
-    <polygon points="192.4,801 192.9,807.6 186.1,801.5" opacity="0.3"/>
-    <polygon points="691.1,405.7 685.7,405.2 691.7,401.2" opacity="0.4"/>
   </g>
   </g>
 </svg>
