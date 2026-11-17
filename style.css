@@ -288,14 +288,20 @@ main>section {
   border: 1px solid var(--borda-cartao);
   border-radius: 8px;
   padding: 16px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* Efeito de elevação: a caixa sobe um pouco e a sombra cresce.
+   Vale para as caixas de texto e para os itens das listas "forte" e "fraco contra".
    Só em aparelhos com cursor; no celular o toque deixaria a caixa "presa" no alto.
    A ficha de exemplo fica de fora: é a demonstração do app, não uma caixa de texto. */
+.cartao,
+.ficha-lista li {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
 @media (hover: hover) {
-  .cartao:not(.ficha-exemplo):hover {
+  .cartao:not(.ficha-exemplo):hover,
+  .ficha-lista li:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 24px var(--sombra);
   }
