@@ -6,6 +6,8 @@
 
 /* ===== Cores (iguais às do app: c:\dev\Counters\src\tema.js) ===== */
 :root {
+  /* o site já é escuro; o navegador não deve inverter nem escurecer as cores */
+  color-scheme: dark;
   --fundo: #0d1424;
   --cartao: rgba(10, 17, 32, 0.72);
   --borda-cartao: rgba(155, 209, 253, 0.16);
