@@ -288,6 +288,17 @@ main>section {
   border: 1px solid var(--borda-cartao);
   border-radius: 8px;
   padding: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efeito de elevação: a caixa sobe um pouco e a sombra cresce.
+   Só em aparelhos com cursor; no celular o toque deixaria a caixa "presa" no alto.
+   A ficha de exemplo fica de fora: é a demonstração do app, não uma caixa de texto. */
+@media (hover: hover) {
+  .cartao:not(.ficha-exemplo):hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px var(--sombra);
+  }
 }
 
 @media (min-width: 768px) {
