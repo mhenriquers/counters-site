@@ -294,19 +294,22 @@ main>section {
 }
 
 /* Efeito de elevação: a caixa sobe um pouco e a sombra cresce.
-   Vale para as caixas de texto e para os itens das listas "forte" e "fraco contra".
+   Vale para as caixas de texto, para os itens das listas "forte" e "fraco contra"
+   e para o QR code do topo.
    Só em aparelhos com cursor; no celular o toque deixaria a caixa "presa" no alto.
    A ficha de exemplo fica de fora: é a demonstração do app, não uma caixa de texto. */
 .cartao,
 .ficha-lista li,
-main>.secao-chamada-final {
+main>.secao-chamada-final,
+.topo-qr img {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 @media (hover: hover) {
   .cartao:not(.ficha-exemplo):hover,
   .ficha-lista li:hover,
-  main>.secao-chamada-final:hover {
+  main>.secao-chamada-final:hover,
+  .topo-qr img:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 24px var(--sombra);
   }
