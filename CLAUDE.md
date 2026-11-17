@@ -13,7 +13,7 @@ O app em si fica em outro repositório: `c:\dev\Counters` (https://github.com/mh
   - PWA: https://counters-peach-one.vercel.app
   - APK, sempre a versão mais nova: https://github.com/mhenriquers/Counters/releases/latest/download/Counters.apk
     (funciona enquanto o arquivo da release se chamar `Counters.apk`)
-
+ 
 ## Decisões
 
 - **HTML e CSS puros**, numa página só. Sem framework, sem build, sem npm. JavaScript só se for indispensável.
