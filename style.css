@@ -922,3 +922,62 @@ main>.secao-chamada-final {
   color: var(--texto-fraco);
   font-size: 0.8rem;
 }
+/* =====================================================================
+   Animações de entrada (fade in)
+   Só para quem não pediu "reduzir movimento" nas configurações do
+   aparelho; para essas pessoas tudo aparece direto, sem animação.
+   ===================================================================== */
+
+/* Surge de baixo para cima, de transparente para visível.
+   Usa "translate" (e não "transform") para não brigar com o efeito de
+   elevação dos cartões, que usa transform. */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    translate: 0 20px;
+  }
+
+  to {
+    opacity: 1;
+    translate: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* Topo: logo, título, botões e celular, um depois do outro, assim que
+     a página abre. Só CSS, sem JavaScript. "both" deixa cada um
+     invisível até a sua vez chegar. */
+  .topo-logo,
+  .topo-texto,
+  .topo-acoes,
+  .topo-print {
+    animation: aparecer 0.7s ease-out both;
+  }
+
+  .topo-texto {
+    animation-delay: 0.12s;
+  }
+
+  .topo-acoes {
+    animation-delay: 0.24s;
+  }
+
+  .topo-print {
+    animation-delay: 0.36s;
+  }
+
+  /* Resto da página: o aparecer.js marca os blocos que estão fora da tela
+     com .revelar (invisível) e acrescenta .visivel quando cada um entra na
+     tela. Sem JavaScript, nada recebe .revelar e tudo fica visível. */
+  .revelar {
+    opacity: 0;
+  }
+
+  .revelar.visivel {
+    animation: aparecer 0.6s ease-out both;
+    /* o aparecer.js define --atraso para os blocos que entram juntos
+       aparecerem em sequência, e não todos de uma vez */
+    animation-delay: var(--atraso, 0s);
+  }
+}
