@@ -37,6 +37,9 @@ body {
   margin: 0;
   background: var(--fundo);
   color: var(--texto);
+  /* seta normal em cima do texto, em vez da barrinha de digitar;
+     links e botões continuam com a mãozinha */
+  cursor: default;
   font-family: system-ui, sans-serif;
   line-height: 1.5;
   -webkit-text-size-adjust: 100%;
@@ -295,13 +298,15 @@ main>section {
    Só em aparelhos com cursor; no celular o toque deixaria a caixa "presa" no alto.
    A ficha de exemplo fica de fora: é a demonstração do app, não uma caixa de texto. */
 .cartao,
-.ficha-lista li {
+.ficha-lista li,
+main>.secao-chamada-final {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 @media (hover: hover) {
   .cartao:not(.ficha-exemplo):hover,
-  .ficha-lista li:hover {
+  .ficha-lista li:hover,
+  main>.secao-chamada-final:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 24px var(--sombra);
   }
