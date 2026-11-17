@@ -133,6 +133,8 @@ main>section {
 @media (min-width: 768px) {
   .botoes {
     flex-direction: row;
+    /* se não couberem lado a lado, um desce para a linha de baixo */
+    flex-wrap: wrap;
   }
 
   .botao-principal,
@@ -154,7 +156,7 @@ main>section {
      tela sem criar rolagem horizontal e sem cortar sombras embaixo */
   overflow-x: clip;
   background: url("img/fundo.svg") center top / cover no-repeat;
-  padding: 32px 0 24px;
+  padding: 20px 0 40px;
   border-bottom: 1px solid var(--borda-cartao);
 }
 
@@ -183,31 +185,98 @@ main>section {
   background: linear-gradient(to bottom, transparent 60%, var(--fundo));
 }
 
+/* Grade do topo. No celular:
+     logo  logo
+     texto texto
+     acoes print   <- o celular fica ao lado dos botões */
 .topo-grade {
   /* conteúdo por cima das duas camadas do fundo */
   position: relative;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+  display: grid;
+  /* a coluna dos botões vai até 340px; em telas mais largas (celular
+     deitado) ela não estica, e o print continua colado nos botões */
+  /* Largura do print: 38% da largura da tela (ou 34% da altura, se for
+     menor, como no celular deitado), entre 104px e 190px.
+     A coluna do print tem essa mesma largura fixa: se fosse "auto", o
+     título (que ocupa as duas colunas) empurraria espaço para ela. */
+  --largura-celular: clamp(104px, min(38vw, 34vh), 190px);
+  grid-template-columns: minmax(0, 340px) var(--largura-celular);
+  grid-template-areas:
+    "logo  logo"
+    "texto texto"
+    "acoes print";
+  align-items: center;
+  column-gap: 16px;
+  row-gap: 28px;
 }
 
 .topo-logo {
-  width: 200px;
-  margin-bottom: 28px;
+  grid-area: logo;
+  width: 150px;
 }
 
+.topo-texto {
+  grid-area: texto;
+}
+
+.topo-acoes {
+  grid-area: acoes;
+}
+
+.topo-print {
+  grid-area: print;
+}
+
+/* clamp(mínimo, ideal, máximo): o tamanho acompanha a tela sem passar dos
+   limites. vw = 1% da largura e svh = 1% da altura; min() pega o menor dos
+   dois, para o título não ficar gigante com o celular deitado.
+   A linha com vh é reserva para navegadores antigos, que não conhecem svh. */
 .secao-topo h1 {
-  color: var(--dourado);
-  font-size: 2rem;
-  line-height: 1.15;
+  font-size: clamp(1.8rem, min(5vw, 6vh) + 0.8rem, 3.4rem);
+  font-size: clamp(1.8rem, min(5vw, 6svh) + 0.8rem, 3.4rem);
+  line-height: 1.1;
   font-weight: 800;
+  /* distribui as palavras por igual entre as linhas */
+  text-wrap: balance;
+}
+
+.secao-topo h1 .destaque {
+  color: var(--dourado);
 }
 
 .topo-subtitulo {
-  margin: 14px 0 28px;
-  font-size: 1.1rem;
+  margin-top: 12px;
+  font-size: clamp(1rem, 0.5vw + 0.9rem, 1.25rem);
   color: var(--texto-secundario);
+}
+
+/* Botões do topo um pouco mais compactos, porque dividem a linha com o print */
+.topo-acoes .botao-principal,
+.topo-acoes .botao-secundario {
+  padding: 13px 10px;
+  font-size: 1rem;
+}
+
+.topo-acoes .botao-principal {
+  box-shadow: 0 8px 28px rgba(255, 215, 0, 0.25);
+}
+
+/* Lista com ✓ embaixo dos botões */
+.topo-vantagens {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+  font-size: 0.95rem;
+}
+
+.topo-vantagens li::before {
+  content: "✓";
+  margin-right: 8px;
+  color: var(--forte);
+  font-weight: 800;
 }
 
 /* QR code: escondido no celular */
@@ -215,59 +284,105 @@ main>section {
   display: none;
 }
 
-/* Print do app numa moldura de celular feita em CSS */
+/* Print do app numa moldura de celular feita em CSS.
+   A largura vem de --largura-celular, definida na .topo-grade. */
 .topo-print {
-  display: flex;
-  justify-content: center;
+  position: relative;
+}
+
+/* brilho azul atrás do celular */
+.topo-print::before {
+  content: "";
+  position: absolute;
+  inset: 5% -40%;
+  z-index: -1;
+  background: radial-gradient(closest-side, rgba(79, 216, 235, 0.3), transparent);
+  pointer-events: none;
 }
 
 .moldura-celular {
-  width: 100%;
-  max-width: 260px;
-  padding: 8px;
+  --borda-moldura: clamp(4px, 1.4vw, 8px);
+  --raio-moldura: clamp(18px, 6vw, 34px);
+  width: var(--largura-celular);
+  padding: var(--borda-moldura);
   border: 1px solid var(--dourado-borda);
-  border-radius: 34px;
+  border-radius: var(--raio-moldura);
   background: var(--fundo);
   box-shadow: 0 24px 60px var(--sombra);
 }
 
 .moldura-celular img {
-  border-radius: 26px;
+  border-radius: calc(var(--raio-moldura) - var(--borda-moldura));
 }
 
-@media (min-width: 768px) {
+/* No computador e no tablet:
+     .     print
+     logo  print
+     texto print
+     acoes print
+     .     print   <- as linhas vazias centralizam o texto na altura do celular
+   A vírgula no @media quer dizer "ou": vale também para celular deitado,
+   que é largo e baixinho. */
+@media (min-width: 768px), (min-width: 600px) and (orientation: landscape) {
   .secao-topo {
-    padding: 56px 0 64px;
+    padding: 48px 0 64px;
   }
 
   .topo-grade {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .topo-texto {
-    flex: 1;
-    max-width: 560px;
+    /* 26% da largura, mas sem ficar mais alto que a tela, para caber
+       em notebook baixinho */
+    --largura-celular: clamp(150px, min(26vw, 42vh), 300px);
+    grid-template-columns: minmax(0, 1fr) var(--largura-celular);
+    grid-template-rows: 1fr auto auto auto 1fr;
+    grid-template-areas:
+      ".     print"
+      "logo  print"
+      "texto print"
+      "acoes print"
+      ".     print";
+    column-gap: 48px;
+    row-gap: 24px;
   }
 
   .topo-logo {
-    width: 240px;
+    width: 200px;
   }
 
-  .secao-topo h1 {
-    font-size: 3rem;
+  .topo-acoes {
+    margin-top: 8px;
   }
 
-  .topo-subtitulo {
-    font-size: 1.25rem;
+  /* botões lado a lado (repetido aqui por causa do celular deitado,
+     que não entra no @media dos botões) */
+  .topo-acoes .botoes {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
+  .topo-acoes .botao-principal,
+  .topo-acoes .botao-secundario {
+    min-width: 180px;
+    padding: 14px 24px;
+    font-size: 1.05rem;
+  }
+
+  .topo-vantagens {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    margin-top: 20px;
+  }
+
+}
+
+/* QR code: só em tela grande com mouse (computador). Em tablet e celular
+   deitado não tem por que apontar a câmera para a própria tela. */
+@media (min-width: 768px) and (hover: hover) and (pointer: fine) {
   .topo-qr {
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-top: 32px;
+    margin-top: 28px;
     font-size: 0.9rem;
     color: var(--texto-secundario);
   }
@@ -275,10 +390,6 @@ main>section {
   .topo-qr img {
     width: 112px;
     border-radius: 8px;
-  }
-
-  .moldura-celular {
-    max-width: 300px;
   }
 }
 
@@ -613,6 +724,18 @@ main>.secao-chamada-final,
   color: var(--texto-corpo);
 }
 
+/* Telas médias (celular deitado, tablet pequeno): 2 colunas */
+@media (min-width: 520px) and (max-width: 767px) {
+  .grade-vantagens {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* o 5º cartão sozinho ocupa a linha inteira, sem deixar buraco */
+  .grade-vantagens li:last-child {
+    grid-column: span 2;
+  }
+}
+
 @media (min-width: 768px) {
 
   /* 6 colunas: os 3 primeiros cartões ocupam 2 cada; os 2 últimos, 3 cada.
@@ -742,6 +865,7 @@ main>.secao-chamada-final {
 /* No celular, os botões ocupam a largura toda */
 .chamada-conteudo .botoes {
   width: 100%;
+  max-width: 400px;
 }
 
 @media (min-width: 768px) {
