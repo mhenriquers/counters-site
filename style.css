@@ -109,7 +109,11 @@ main>section {
 }
 
 .botao-principal {
-  background: var(--botao);
+  /* O amarelo vai duas vezes: como cor e como "imagem" (um degradê de uma
+     cor só). O modo escuro forçado de alguns celulares (Samsung, Xiaomi)
+     escurece a cor de fundo, mas não mexe em imagens, então o botão
+     continua dourado como no computador. */
+  background: var(--botao) linear-gradient(var(--botao), var(--botao));
   color: var(--fundo);
   border: 2px solid var(--botao);
 }
