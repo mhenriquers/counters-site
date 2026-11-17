@@ -35,10 +35,7 @@ html {
 
 body {
   margin: 0;
-  /* fragmentos pequenos e distantes pela página toda, sobre a cor de fundo */
-  background:
-    url("img/fragmentos-longe.svg") center top / 900px auto repeat,
-    var(--fundo);
+  background: var(--fundo);
   color: var(--texto);
   font-family: system-ui, sans-serif;
   line-height: 1.5;
@@ -146,13 +143,10 @@ main>section {
    ===================================================================== */
 .secao-topo {
   /* fundo da Home do app, refeito em SVG: fragmentos de vidro por cima
-     do degradê, desbotando para a cor de fundo embaixo.
-     Os fragmentos distantes ficam acima do desbotado para não sumirem
-     e continuarem, sem emenda, no fundo do body */
+     do degradê, desbotando para a cor de fundo embaixo */
   background:
-    url("img/fragmentos.svg") center top / 100% auto no-repeat,
-    url("img/fragmentos-longe.svg") center top / 900px auto repeat,
     linear-gradient(to bottom, transparent 60%, var(--fundo)),
+    url("img/fragmentos.svg") center top / 100% auto no-repeat,
     url("img/fundo.svg") center top / cover no-repeat;
   padding: 32px 0 24px;
   border-bottom: 1px solid var(--borda-cartao);
