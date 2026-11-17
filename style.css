@@ -24,6 +24,22 @@
   --sombra: rgba(0, 0, 0, 0.45);
 }
 
+/* "Tema escuro" do site, para o Samsung Internet.
+   Com o modo escuro do celular ligado, ele escurece as cores de qualquer
+   site (o amarelo dos botões vira mostarda), a não ser que o site tenha um
+   tema escuro próprio, declarado com prefers-color-scheme: dark.
+   O nosso site já é escuro, então aqui só repetimos as mesmas cores: o bloco
+   existe para o Samsung ver que o site cuida do próprio modo escuro. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --fundo: #0d1424;
+    --texto: #ffffff;
+    --dourado: #D3AF37;
+    --botao: #ffd700;
+  }
+}
+
 /* ===== Base ===== */
 *,
 *::before,
