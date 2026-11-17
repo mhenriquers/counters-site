@@ -312,6 +312,19 @@ main>.secao-chamada-final {
   }
 }
 
+/* O celular do topo também sobe, um pouco mais por ser maior.
+   A sombra parte da que ele já tem (0 24px 60px) e cresce junto. */
+.moldura-celular {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+@media (hover: hover) {
+  .moldura-celular:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 36px 72px var(--sombra);
+  }
+}
+
 @media (min-width: 768px) {
   .faixa-titulo {
     min-height: 64px;
