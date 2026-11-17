@@ -145,17 +145,48 @@ main>section {
    1. Topo
    ===================================================================== */
 .secao-topo {
-  /* fundo da Home do app, refeito em SVG: fragmentos de vidro por cima
-     do degradê, desbotando para a cor de fundo embaixo */
-  background:
-    linear-gradient(to bottom, transparent 60%, var(--fundo)),
-    url("img/fragmentos.svg") center top / 100% auto no-repeat,
-    url("img/fundo.svg") center top / cover no-repeat;
+  /* fundo da Home do app, refeito em SVG, em três camadas:
+     degradê (aqui), fragmentos de vidro (::before) e o esmaecimento
+     para a cor de fundo embaixo (::after) */
+  position: relative;
+  isolation: isolate;
+  /* os fragmentos se mexem para os lados; "clip" corta o que sair da
+     tela sem criar rolagem horizontal e sem cortar sombras embaixo */
+  overflow-x: clip;
+  background: url("img/fundo.svg") center top / cover no-repeat;
   padding: 32px 0 24px;
   border-bottom: 1px solid var(--borda-cartao);
 }
 
+.secao-topo::before,
+.secao-topo::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Fragmentos de vidro: um pouco maiores que o topo, para não aparecer
+   borda vazia quando se mexem. O movimento vem do movimento.js, que
+   muda --mover-x e --mover-y conforme a inclinação do celular. */
+.secao-topo::before {
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: 0;
+  background: url("img/fragmentos.svg") center top / 100% auto no-repeat;
+  transform: translate3d(var(--mover-x, 0px), var(--mover-y, 0px), 0);
+  will-change: transform;
+}
+
+.secao-topo::after {
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, var(--fundo));
+}
+
 .topo-grade {
+  /* conteúdo por cima das duas camadas do fundo */
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: 40px;
