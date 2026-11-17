@@ -328,6 +328,17 @@ main>.secao-chamada-final,
   }
 }
 
+/* Faixa de título: em vez de subir, cresce um pouco (zoom) */
+.faixa-titulo {
+  transition: transform 0.25s ease;
+}
+
+@media (hover: hover) {
+  .faixa-titulo:hover {
+    transform: scale(1.03);
+  }
+}
+
 @media (min-width: 768px) {
   .faixa-titulo {
     min-height: 64px;
